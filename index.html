@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <title> Code </title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <span>   محرر الأكواد </span>
+    </header>
+    <div class="editor">
+        <div>
+          <h3> Html_Code</h3> 
+         <textarea id="html"></textarea>
+        </div>
+        <div>
+            <h3> Css_Code</h3> 
+           <textarea id="css"></textarea>
+        </div>
+        <div>
+            <h3> JavaSrcipt_Code</h3> 
+           <textarea id="js"></textarea>
+        </div>
+    </div>
+    <div class="edu2">
+        <iframe id="out" frameborder="1" srcdoc=""></iframe>
+    </div>
+
+<script>
+function run(){
+    let htmlC = document.querySelector(".editor #html").value;
+    let CssC = "<style>" + document.querySelector('.editor #css').value + "</style>";
+    let jsC = document.querySelector(".editor #js").value;
+    let out = document.querySelector(".edu2 #out");
+    out.contentDocument.body.innerHTML = htmlC + CssC;
+    out.contentWindow.eval(jsC);
+}
+
+document.querySelector(".editor #html").addEventListener("keyup", run);
+document.querySelector(".editor #css").addEventListener("keyup", run);
+document.querySelector(".editor #js").addEventListener("keyup", run);
+</script>
+
+</body>
+</html>
